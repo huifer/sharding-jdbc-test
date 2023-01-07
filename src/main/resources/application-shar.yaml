@@ -1,0 +1,55 @@
+server:
+  port: 1023
+
+spring:
+#  jpa:
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    show-sql: true
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: 'jdbc:mysql://127.0.0.1:3306/bbs?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false'
+
+  application:
+    name: sharding-jdbc-test
+  shardingsphere:
+    props:
+      sql:
+        show: true
+    datasource:
+      names: ds
+      ds:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: 'jdbc:mysql://localhost:3306/bbs?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false'
+        username: root
+        password: root
+    sharding:
+      tables:
+        sample_data:
+          actual-data-nodes: ds.sample_data_$->{2023..2028}_$->{1..12}
+          table-strategy:
+            standard:
+              precise-algorithm-class-name: com.example.demo.sharding.TableShardingAlgorithm
+              range-algorithm-class-name: com.example.demo.sharding.TableShardingAlgorithm
+              sharding-column: time
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+            props:
+              worker:
+                id: 123
+
+logging:
+  level:
+    org.springframework.security:
+      - debug
+      - info
+    org.springframework.web: error
+    org.hibernate.SQL: debug
+    org.hibernate.engine.QueryParameters: debug
+    org.hibernate.engine.query.HQLQueryPlan: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
