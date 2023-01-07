@@ -53,7 +53,7 @@ public class TableShardingAlgorithm implements PreciseShardingAlgorithm<Timestam
     if (CollectionUtils.isEmpty(name)) {
       // 创建表
       String sql = "CREATE TABLE `" + item + "` (\n"
-          + "  `id` bigint NOT NULL AUTO_INCREMENT,\n"
+          + "  `id` bigint NOT NULL ,\n"
           + "  `device_id` varchar(255) DEFAULT NULL,\n"
           + "  `time` datetime DEFAULT NULL,\n"
           + "  `v1` varchar(255) DEFAULT NULL,\n"
@@ -62,7 +62,7 @@ public class TableShardingAlgorithm implements PreciseShardingAlgorithm<Timestam
           + "  `v4` varchar(255) DEFAULT NULL,\n"
           + "  `v5` varchar(255) DEFAULT NULL,\n"
           + "  PRIMARY KEY (`id`)\n"
-          + ") ENGINE=InnoDB AUTO_INCREMENT=818114806320992257 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+          + ") ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
       jdbcTemplate.execute(sql);
     }
   }

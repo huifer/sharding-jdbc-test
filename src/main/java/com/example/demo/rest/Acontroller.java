@@ -6,6 +6,7 @@ import com.example.demo.module.SampleDataRepository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +33,7 @@ public class Acontroller {
   @GetMapping("/ac")
   public void generator(int year) {
     List<SampleData> datas = new ArrayList<>();
+    long i = 1;
     for (String s : deviceId) {
 
       SampleData entity = new SampleData();

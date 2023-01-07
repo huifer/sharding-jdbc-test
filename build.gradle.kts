@@ -34,7 +34,9 @@ dependencies {
     implementation("mysql:mysql-connector-java")
     implementation("org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1")
     implementation("cn.hutool:hutool-all:5.8.11")
+    implementation("com.baomidou:mybatis-plus-boot-starter:3.5.3.1")
 
+    implementation("org.mybatis:mybatis-typehandlers-jsr310:1.0.2")
 
 }
 
