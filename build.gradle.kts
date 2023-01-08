@@ -32,7 +32,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("com.baomidou:mybatis-plus-boot-starter:3.5.2")
     implementation("mysql:mysql-connector-java")
-    implementation("org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1")
+    implementation("org.apache.shardingsphere:shardingsphere-jdbc-core-spring-boot-starter:5.2.1")
+
     implementation("cn.hutool:hutool-all:5.8.11")
     implementation("com.baomidou:mybatis-plus-boot-starter:3.5.3.1")
 
