@@ -17,31 +17,29 @@ spring:
     name: sharding-jdbc-test
   shardingsphere:
     props:
-      sql:
-        show: true
+      sql-show: true
     datasource:
-      names: ds
       ds:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: 'jdbc:mysql://localhost:3306/bbs?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false'
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/bbs?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        password: root123@
         username: root
-        password: root
-    sharding:
-      tables:
-        sample_data:
-          actual-data-nodes: ds.sample_data_$->{2023..2028}_$->{1..12}
-          table-strategy:
-            standard:
-              precise-algorithm-class-name: com.example.demo.sharding.TableShardingAlgorithm
-              range-algorithm-class-name: com.example.demo.sharding.TableShardingAlgorithm
-              sharding-column: time
-          key-generator:
-            column: id
-            type: SNOWFLAKE
-            props:
-              worker:
-                id: 123
+      names: ds
+    rules:
+      sharding:
+        binding-tables:
+          - sample_data
+        sharding-algorithms:
+          sample-data-algorithms:
+            type: ORDER_HIS
+        tables:
+          sample_data:
+            actual-data-nodes: ds.sample_data_$->{2023..2028}_$->{1..12}
+            table-strategy:
+              standard:
+                sharding-algorithm-name: sample-data-algorithms
+                sharding-column: time
 
 logging:
   level:
