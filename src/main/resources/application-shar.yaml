@@ -33,7 +33,7 @@ spring:
             type: ORDER_HIS
         tables:
           sample_data:
-            actual-data-nodes: ds.sample_data_$->{202201..203012}
+            actual-data-nodes: ds.sample_data_$->{2023..2024}_$->{01..12}
             table-strategy:
               standard:
                 sharding-algorithm-name: t-order-algorithms

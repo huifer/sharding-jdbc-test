@@ -53,7 +53,7 @@ public class Acontroller {
 
   @GetMapping("/query")
   public List<SampleData> data(int year) {
-    List<SampleData> byTimeLessThan = sampleDataRepository.findByTimeLessThanEqual(LocalDateTime.of(year, 1, 01, 00, 00, 00));
+    List<SampleData> byTimeLessThan = sampleDataRepository.findByTimeLessThanEqual(LocalDateTime.of(year, 2, 01, 00, 00, 00));
     return byTimeLessThan;
   }
 }

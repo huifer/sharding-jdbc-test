@@ -25,7 +25,7 @@ class AcontrollerTest {
   void save(){
     for (int i = 0; i < 3; i++) {
       SampleData entity = new SampleData();
-      entity.setTime(LocalDateTime.of(2066, 2, 01, 00, 00, 00));
+      entity.setTime(LocalDateTime.of(2023, 2, 01, 00, 00, 00));
       entity.setDeviceId("dev_" + i);
       entity.setV1(RandomUtil.randomNumbers(1));
       entity.setV2(RandomUtil.randomNumbers(2));
@@ -39,7 +39,7 @@ class AcontrollerTest {
   @Test
   void find(){
     QueryWrapper<SampleData> queryWrapper = new QueryWrapper<>();
-    queryWrapper.lambda().lt(SampleData::getTime, LocalDateTime.of(2077, 1, 01, 00, 00, 00));
+    queryWrapper.lambda().lt(SampleData::getTime, LocalDateTime.of(2025, 3, 1, 00, 00, 00));
     List<SampleData> sampleData = sampleMapper.selectList(queryWrapper);
     System.out.println();
   }
