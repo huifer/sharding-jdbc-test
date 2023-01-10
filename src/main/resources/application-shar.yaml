@@ -38,6 +38,14 @@ spring:
               standard:
                 sharding-algorithm-name: t-order-algorithms
                 sharding-column: time
+          sample_data_device1:
+            actual-data-nodes: ds.sample_data_device1_$->{2023..2024}_$->{01..12}
+            table-strategy:
+              standard:
+                sharding-algorithm-name: t-order-algorithms
+                sharding-column: time
+
+
     props:
       sql-show: true
 

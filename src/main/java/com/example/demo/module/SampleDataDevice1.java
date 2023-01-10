@@ -22,9 +22,9 @@ import lombok.experimental.FieldNameConstants;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "sample_data")
+@Table(name = "sample_data_device1")
 @FieldNameConstants
-public class SampleData implements Serializable {
+public class SampleDataDevice1 implements Serializable {
 
   @Getter(AccessLevel.NONE)
   @Setter(AccessLevel.NONE)
