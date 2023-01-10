@@ -1,5 +1,5 @@
 server:
-  port: 1023
+  port: 9999
 
 spring:
 #  jpa:
@@ -16,8 +16,6 @@ spring:
   application:
     name: sharding-jdbc-test
   shardingsphere:
-    props:
-      sql-show: true
     datasource:
       ds:
         type: com.zaxxer.hikari.HikariDataSource
@@ -31,15 +29,17 @@ spring:
         binding-tables:
           - sample_data
         sharding-algorithms:
-          sample-data-algorithms:
+          t-order-algorithms:
             type: ORDER_HIS
         tables:
           sample_data:
-            actual-data-nodes: ds.sample_data_$->{2023..2028}_$->{1..12}
+            actual-data-nodes: ds.sample_data_$->{202201..203012}
             table-strategy:
               standard:
-                sharding-algorithm-name: sample-data-algorithms
+                sharding-algorithm-name: t-order-algorithms
                 sharding-column: time
+    props:
+      sql-show: true
 
 logging:
   level:
