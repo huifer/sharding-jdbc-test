@@ -26,8 +26,6 @@ spring:
       names: ds
     rules:
       sharding:
-        binding-tables:
-          - sample_data
         sharding-algorithms:
           t-order-algorithms:
             type: ORDER_HIS

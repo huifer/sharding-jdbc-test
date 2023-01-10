@@ -2,6 +2,7 @@ package com.example.demo.rest;
 
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.demo.module.AbsSampleData;
 import com.example.demo.module.SampleData;
 import com.example.demo.module.SampleDataDevice1;
 import com.example.demo.module.SampleDevice1Mapper;
